@@ -59,7 +59,6 @@ class ServiceViewSet(NetboxPrometheusSDModelViewSet):
 
 class VirtualMachineViewSet(NetboxPrometheusSDModelViewSet):
     queryset = VirtualMachine.objects.prefetch_related(
-        "cluster__site",
         "role",
         "tenant",
         "platform",
@@ -80,7 +79,6 @@ class DeviceViewSet(NetboxPrometheusSDModelViewSet):
         "role" if hasattr(Device, "role") else "device_role",
         "tenant",
         "platform",
-        "site",
         "location",
         "rack",
         "parent_bay",
